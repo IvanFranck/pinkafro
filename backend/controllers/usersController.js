@@ -27,7 +27,18 @@ exports.registerNewUser = async (req, res) => {
 };
 
 //handle log in user action
-exports.loginUser = async (req, res) => {};
+exports.loginUser = async (req, res) => {
+    try {
+        const email = req.body.mail;
+        const password = req.body.password;
+        const user = await User.findByCredentials(email, password);
+        if(!user) return status(401).json({ error : "login failed check authentification crédentials"});
+        const token = await user.generateAuthToken();
+        res.status(201).json({ user, token});
+    } catch (error) {
+        res.status(400).json({err: error})
+    }
+};
 
 //handle register get user details action
 exports.getUserDetails = async (req, res) => {

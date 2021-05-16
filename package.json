@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile-sass": "node-sass assets/sass/main.scss assets/styles/style.css -w"
+    "compile-sass": "node-sass frontend/public/assets/sass/main.scss frontend/public/assets/styles/style.css -w"
   },
   "repository": {
     "type": "git",
