@@ -45,6 +45,7 @@ body {
   border-bottom: solid 0.1rem #18010D; }
 
 .form-group {
+  font-family: 'Roboto';
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -53,12 +54,10 @@ body {
   width: 100%; }
   .form-group label {
     font-size: 1.4rem;
-    font-family: "Roboto";
     font-weight: 400;
     color: #504E4E; }
   .form-group input {
     border: .1rem solid #e2e6ec;
-    font-family: 'Roboto';
     font-weight: 400;
     outline: none;
     padding: 0 1.6rem;
@@ -70,6 +69,21 @@ body {
   .form-group input:focus {
     outline: none;
     border: .1rem solid #e2e6ec; }
+  .form-group span {
+    width: 100%;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .form-group span a {
+      margin-left: .5rem; }
+    .form-group span a:visited,
+    .form-group span a:link {
+      text-decoration: none;
+      color: #6A7FDB;
+      transition: all .2s; }
+    .form-group span a:hover {
+      color: #2F4AC1; }
 
 .button {
   width: 100%;
