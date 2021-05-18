@@ -13,7 +13,7 @@
       <button class="button button__primary" type="submit">Sign In</button>
     </div>
     <div class="form-group">
-      <span><p>Don't have an account ?</p> <router-link to="/panels/sign-up">Create one</router-link></span>
+      <span><p>Don't have an account ?</p> <router-link :to="this.$route.path+'/sign-up'">Create one</router-link></span>
     </div>
   </form>
 </template>
@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       login: {
-        mail: '',
+        mail: "",
         password: ""
       }
     };
@@ -33,7 +33,6 @@ export default {
     async handleLogIn() {
       try {
         let response = await this.$http.post("/user/login", this.login);
-        console.log("log in : " + response);
         let token = response.data.token;
         localStorage.setItem("jwt", token);
         if(token){
@@ -41,7 +40,7 @@ export default {
         }
       } catch (err) {
         swal("Error", "Something Went Wrong", "error");
-        console.log(err.response);
+        console.log("ERROR !",err.response);
       }
     }
   }

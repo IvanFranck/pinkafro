@@ -32,9 +32,9 @@ export default {
   data () {
     return {
       user: {
-        mail: '',
         first_name: "",
         last_name: "",
+        mail: '',
         password: ''
       }
     };
@@ -43,19 +43,19 @@ export default {
     async handleSignUp(){
       try {
         let response = await this.$http.post("/user/register", this.user);
-        await console.log("register : " + response);
-        let token = response.token.token;
+        console.log("register : ", response.data.token);
+        let token = response.data.token;
         if (token) {
           localStorage.setItem("jwt", token);
           this.$router.push("/");
-          swal("Success", "Registation was succesful", "success");
+          swal("Success", "Registration was succesful", "success");
         }else{
           swal("Error", "Something went wrong", "error");
         }
       } catch (error) {
         let err = error.response;
         if(error.status == 409) swal("Error", "err.data.message", "error");
-        else swal("Error", "erreur", "error");
+        else swal("Error", "error during registration", "error");
       }
     }
   }

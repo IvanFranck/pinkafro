@@ -5,7 +5,6 @@ module.exports = (req, res, next) => {
         const token = req.headers.authorization.replace("Bearer ", "");
         const decoded = jwt.verify(token, "pinkafro");
         req.userData = decoded;
-        console.log(decoded)
         next();
     }catch (err) {
         return res.status(401).json({

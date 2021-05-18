@@ -6,10 +6,32 @@
       </div>
       <nav class="navbar">
         <ul class="navbar-items">
-          <a class="link link__active" href="#"><router-link tag="li" to="/">Home</router-link></a>
-          <a class="link" href="#"><router-link to="/our-services" tag="li">OUR SERVICES</router-link></a>
-          <a class="link" href="#"><router-link to="/find-treatement" tag="li">FIND TREATEMENT</router-link></a>
-          <a class="link" href="#"><router-link to="/panels" tag="li">PANELS</router-link></a>
+          <router-link class="link link__active" tag="a" to="/">
+            <span class="link-text">Home</span>
+            <span class="bottom-line"></span>
+          </router-link>
+          <router-link class="link link__active"  to="/our-services" tag="a">
+            <span class="link-text">OUR SERVICES</span>
+            <span class="bottom-line"></span>
+          </router-link>
+          <router-link class="link link__active" to="/find-treatement" tag="a">
+            <span class="link-text">FIND TREATEMENT</span>
+            <span class="bottom-line"></span>
+          </router-link>
+          <li class="link link__active dropdown-start">
+            <span class="link-text">PANELS</span>
+            <span class="bottom-line"></span>
+            <div class="dropdown">
+              <ul class="inner">
+                <router-link class="link" tag="a" to="/panels/customer">
+                  <span >Customer panel</span>
+                </router-link>
+                <router-link class="link" tag="a" to="/panels/service-provider">
+                  <span >service provider panel</span>
+                </router-link>
+              </ul>
+            </div>
+          </li>
         </ul>
       </nav>
     </header>

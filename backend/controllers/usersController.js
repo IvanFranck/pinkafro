@@ -4,12 +4,12 @@ const User = require('../models/userModel');
 //handle register new user action
 exports.registerNewUser = async (req, res) => {
     try {
-        console.log(isUser);
-        if (isUser.length >= 1) {
-            return res.status(409).json({
-                message: "email already in use"
-            });
-        };
+        // console.log(isUser);
+        // if (isUser.length >= 1) {
+        //     return res.status(409).json({
+        //         message: "email already in use"
+        //     });
+        // };
 
 
         const user = new User({
