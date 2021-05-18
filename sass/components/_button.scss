@@ -1,0 +1,21 @@
+.button{
+    width: 100%;
+    padding: 1.5rem 1rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: all .2s;
+    
+    &__primary:visited,
+    &__primary{
+        background-color: $color-secondary;
+        color: white;
+    }
+    
+    &__primary:hover{
+        background-color: #2F4AC1;
+    }
+
+}

@@ -1,0 +1,20 @@
+.link{
+    &:link,
+    &:visited{
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $color-text-secondary;
+        display: inline-block;
+        transition: all .2s;
+        
+    }
+
+    &:hover{
+        color: $color-text-primary;
+    }
+
+    // &__active{
+    //     color: $color-text-primary ; 
+    //     border-bottom: solid .1rem $color-text-primary;
+    // }
+}

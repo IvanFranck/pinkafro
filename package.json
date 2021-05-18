@@ -1,0 +1,26 @@
+{
+  "name": "pinkafro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanFranck/pinkafro.git"
+  },
+  "scripts": {
+    "compile-sass": "node-sass ./sass/main.scss ./frontend/src/assets/style.css -w"
+  },
+  "author": "NZIMA IVAN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanFranck/pinkafro/issues"
+  },
+  "homepage": "https://github.com/IvanFranck/pinkafro#readme",
+  "devDependencies": {
+    "node-sass": "^6.0.0",
+    "sass-loader": "^11.1.1"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
