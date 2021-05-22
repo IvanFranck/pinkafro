@@ -39,12 +39,13 @@ mongoose
         console.log({ database_error: err})
     });
 
-//define first route
-app.get('/', (req, res) => {
-    console.log("hello world !");
-})
-const userRoutes = require('./routes/userRoutes');
-app.use("/user", userRoutes);
+//define user routes
+const userRouter = require('./routes/userRoutes');
+app.use("/user", userRouter);
+
+//define services routes
+const serviceRouter = require('./routes/serviceRoutes') ;
+app.use("/service", serviceRouter);
 
 //launch app to listen to specified PORT
 app.listen(PORT, ()=>{

@@ -1,10 +1,11 @@
 <template>
     <header>
-      <div class="logo">
+      <router-link tag="div" to="/" class="logo">
         <span class="logo__pink">pink</span>
         <span class="logo__balck">afro</span>
-      </div>
-      <nav class="navbar">
+      </router-link>
+      <nav v-if="this.$route.path.includes('/admin')" ></nav>
+      <nav class="navbar" v-else>
         <ul class="navbar-items">
           <router-link class="link link__active" tag="a" to="/">
             <span class="link-text">Home</span>

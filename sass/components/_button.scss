@@ -1,21 +1,42 @@
-.button{
-    width: 100%;
-    padding: 1.5rem 1rem;
-    font-size: 1.6rem;
-    font-weight: 500;
-    border: none;
-    border-radius: .5rem;
-    cursor: pointer;
-    transition: all .2s;
-    
-    &__primary:visited,
-    &__primary{
-        background-color: $color-secondary;
-        color: white;
-    }
-    
-    &__primary:hover{
-        background-color: #2F4AC1;
-    }
+.button {
+  width: 100%;
+  padding: 1.5rem 1rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
 
+  &__primary:visited,
+  &__primary {
+    background-color: $color-secondary;
+    color: white;
+  }
+
+  &__primary:hover {
+    background-color: #2f4ac1;
+  }
+
+  &__tertiary {
+    color: $color-primary;
+
+    &:hover{
+        color: $color-primary-dark !important;
+    }
+  }
+
+  &__secondary {
+    background-color: $color-primary;
+    color: white;
+
+    &:hover{
+    background-color: $color-primary-dark;
+    color: white !important;
+    }
+  }
 }
