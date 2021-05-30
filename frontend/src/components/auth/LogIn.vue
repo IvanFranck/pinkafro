@@ -13,7 +13,7 @@
       <button class="button button__primary" type="submit">Sign In</button>
     </div>
     <div class="form-group">
-      <span><p>Don't have an account ?</p> <router-link :to="this.$route.path+'/sign-up'">Create one</router-link></span>
+      <span v-if="this.$route.path.includes('/panels/customer')"><p>Don't have an account ?</p> <router-link :to="this.$route.path+'/sign-up'">Create one</router-link></span>
     </div>
   </form>
 </template>

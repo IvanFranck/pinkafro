@@ -1,10 +1,9 @@
-.register-form{
-    font-family: 'Nunito sans';
+.register-form {
+  form {
+    width: 60rem;
+    font-family: "Nunito sans";
     padding: 7.6rem;
-    background-color: #FFFF;
-    box-shadow: 0px 0px 70px rgba($color: #504E4E, $alpha: 0.3);
-
-    form{
-        width: 30rem;
-    }
+    background-color: #ffff;
+    box-shadow: 0px 0px 70px rgba($color: #504e4e, $alpha: 0.3);
+  }
 }

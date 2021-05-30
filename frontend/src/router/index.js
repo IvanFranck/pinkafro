@@ -28,7 +28,6 @@ export default new Router({
       children: [
         { path: 'service-provider', component: LogIn},
         { path: 'customer', component: LogIn},
-        { path: 'service-provider/sign-up', component: SignUp},
         { path: 'customer/sign-up', component: SignUp},
       ]
     },

@@ -20,9 +20,6 @@
     <div class="form-group">
       <button class="button button__primary" type="submit">Create</button>
     </div>
-    <div class="form-group">
-      <span>Already have ann account ? <router-link to="/panel/log-in">Log In</router-link> </span>
-    </div>
   </form>
 </template>
 
