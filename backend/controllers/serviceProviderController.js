@@ -9,10 +9,7 @@ exports.index = async (req, res) => {
             res.status(404).json({
                 error: err
             });
-        res.status(200).json({
-            message: "services providers retrieved successfully",
-            data: services
-        });
+        res.status(200).json( services );
     });
 };
 
@@ -25,7 +22,7 @@ exports.new = async (req, res) => {
             last_name: req.body.last_name,
             mail: req.body.mail,
             password: req.body.password,
-            account_type: req.body.account_type,
+            account_type: "service-provider",
             number: req.body.number
         });
         const user_data = await user.save();
@@ -50,7 +47,6 @@ exports.update = async (req, res) => {
     try {
         await ServiceProvider.findById(req.params.serviceProviderId, (err, serviceProvider) => {
             
-            console.log(serviceProvider);
             User.findById(serviceProvider.user_id, (error, user) => {
                 user.first_name = req.body.first_name ? req.body.first_name : user.first_name;
                 user.last_name = req.body.last_name ? req.body.last_name : user.last_name;
@@ -78,6 +74,11 @@ exports.update = async (req, res) => {
 
 //handle services provider delete action
 exports.delete = async (req, res) => {
+    await ServiceProvider.findById (req.params.serviceProviderId, (err, serviceProvider)=>{
+        User.remove({_id: serviceProvider.user_id}, err => {
+            if (err) if (err) res.status(404).json(err);
+        })
+    });
     await ServiceProvider.remove({
         _id: req.params.serviceProviderId
     }, (err, serviceProvider) => {

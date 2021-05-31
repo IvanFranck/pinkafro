@@ -25,18 +25,20 @@
   &__tertiary {
     color: $color-primary;
 
-    &:hover{
-        color: $color-primary-dark !important;
+    &:hover {
+      color: $color-primary-dark !important;
     }
   }
 
   &__secondary {
+    border: 1px solid $color-primary;
     background-color: $color-primary;
     color: white;
 
-    &:hover{
-    background-color: $color-primary-dark;
-    color: white !important;
+    &:hover {
+      border: 1px solid $color-primary;
+      background-color: $color-primary-dark;
+      color: white !important;
     }
   }
 }

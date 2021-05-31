@@ -6,10 +6,15 @@ const serviceProviderSchema = mongoose.Schema({
         type: ObjectID,
         required: true
     },
+    // choose between disabled and active
+    status:{
+        type: String,
+        required: true
+    },
 
-    // service: { id: ObjectId, price: Number }
+    // service: [{ id: ObjectId, price: Number }, { id: ObjectId, price: Number }]
     services: {
-        type: Object,
+        type: Array,
         required: true
     },
 

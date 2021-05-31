@@ -8,10 +8,19 @@
 
 html{
     font-size: 62.5%;
+    height: 100%;
+    width: 100%;
 }
 
 body{
     //font family
     font-family: 'Playfair Display', 'Open sans',sans-serif;
     box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}
+
+#app{
+    height: 100%;
+    width: 100%;  
 }

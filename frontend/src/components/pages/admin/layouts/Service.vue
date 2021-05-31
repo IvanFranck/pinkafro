@@ -121,10 +121,6 @@ export default {
       if (newName.trim() != "") this.btn_text = "Edit service";
       else this.btn_text = "Annuler";
     },
-  },
-
-  mounted() {
-    console.log("mounted");
-  },
+  }
 };
 </script>

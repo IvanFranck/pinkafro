@@ -6,11 +6,19 @@
   box-sizing: inherit; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  height: 100%;
+  width: 100%; }
 
 body {
   font-family: 'Playfair Display', 'Open sans',sans-serif;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%; }
+
+#app {
+  height: 100%;
+  width: 100%; }
 
 .text-secondary {
   font-family: 'Roboto';
@@ -106,9 +114,11 @@ body {
     .button__tertiary:hover {
       color: #D60973 !important; }
   .button__secondary {
+    border: 1px solid #E50A7A;
     background-color: #E50A7A;
     color: white; }
     .button__secondary:hover {
+      border: 1px solid #E50A7A;
       background-color: #D60973;
       color: white !important; }
 
@@ -207,6 +217,7 @@ header {
 
 .contain {
   width: 100%;
+  height: 100%;
   padding-top: 4rem;
   display: flex;
   justify-self: center;
@@ -220,7 +231,7 @@ header {
     margin: 0rem 8rem;
     padding: 0 !important;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
     font-size: 2rem;
@@ -235,6 +246,28 @@ header {
       .side-bar .side-bar--menu a span {
         padding-left: .8rem; }
 
+.account {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%; }
+  .account-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between; }
+  .account-body {
+    font-size: 1.5rem; }
+
+.table th {
+  font-weight: 400 !important; }
+
+.table td {
+  padding: 2rem 1rem; }
+
+.table-head {
+  color: #B6B4B4; }
+
 .register-form form {
   width: 60rem;
   font-family: "Nunito sans";
@@ -243,18 +276,23 @@ header {
   box-shadow: 0px 0px 70px rgba(80, 78, 78, 0.3); }
 
 .admin-app {
-  background-color: #EFF2F7; }
-
-.container-inner {
+  background-color: #EFF2F7;
   width: 100%;
   display: flex;
+  flex-direction: column; }
+
+.container-inner {
+  flex: 1 1 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center; }
+  justify-content: space-between; }
 
 .main {
   flex: 1 1 80%;
-  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

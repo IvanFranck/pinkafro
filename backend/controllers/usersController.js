@@ -14,9 +14,9 @@ exports.registerNewUser = async (req, res) => {
         });
         const data = await user.save();
         const token = await user.generateAuthToken();
-        res.status(201).json({data, token });
-    }catch (err){
-        res.status(404).json({ err: err});
+        res.status(201).json({ data, token });
+    } catch (err) {
+        res.status(404).json({ err: err });
     };
 };
 
@@ -26,15 +26,18 @@ exports.loginUser = async (req, res) => {
         const email = req.body.mail;
         const password = req.body.password;
         const user = await User.findByCredentials(email, password);
-        if(!user) return status(401).json({ error : "login failed check authentification crédentials"});
+        if (!user) return status(401).json({ error: "login failed check authentification crédentials" });
         const token = await user.generateAuthToken();
-        res.status(201).json({ user, token});
+        res.status(201).json({ user, token });
     } catch (error) {
-        res.status(400).json({err: error})
+        res.status(400).json({ err: error })
     }
 };
 
-//handle register get user details action
+//get user details
 exports.getUserDetails = async (req, res) => {
-    await res.json(req.userData);
+    await User.findById(req.params.userId, (err, user) => {
+        if (err) res.status(404)
+        else res.status(200).json(user)
+    })
 };
