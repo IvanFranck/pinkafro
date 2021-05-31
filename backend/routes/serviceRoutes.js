@@ -12,4 +12,4 @@ router.route("/:serviceId")
     .get(serviceController.view)
     .delete(serviceController.delete);
 
-    module.exports = router
+module.exports = router

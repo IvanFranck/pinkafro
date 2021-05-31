@@ -1,9 +1,9 @@
 // iport service model
 const Service = require('../models/serviceModel');
 
-//handle all services getting
-exports.index = (req, res) => {
-    Service.get( (err, services) => {
+//get all services 
+exports.index = async (req, res) => {
+    await Service.get( (err, services) => {
         if (err) 
             res.status(404).json({
                 error: err
@@ -16,8 +16,8 @@ exports.index = (req, res) => {
 };
 
 //hadle service getting
-exports.view = (req, res) => {
-    Service.findById(req.params.serviceId, (err, service) => {
+exports.view = async (req, res) => {
+    await Service.findById(req.params.serviceId, (err, service) => {
         if (err) res.status(404).json(err);
         res.status(200).json({
             message: "service details loading...",
@@ -28,11 +28,10 @@ exports.view = (req, res) => {
 
 
 //handle service add action
-exports.new = (req, res) => {
+exports.new = async (req, res) => {
     var service = new Service();
     service.name = req.body.name;
-    console.log(req.body);
-    service.save( err => {
+    await service.save( err => {
         if(err) res.status(400).json(err);
 
         res.status(201).json({
@@ -43,8 +42,8 @@ exports.new = (req, res) => {
 };
 
 //handle service delete action
-exports.delete = (req, res) => {
-    Service.remove({
+exports.delete = async (req, res) => {
+    await Service.remove({
         _id: req.params.serviceId
     }, (err, service) => {
         if (err) res.status(404).json(err);
@@ -55,10 +54,9 @@ exports.delete = (req, res) => {
 };
 
 //handle service update
-exports.update =  (req, res) => {
-    Service.findById(req.params.serviceId, (err, service)=>{
+exports.update = async  (req, res) => {
+    await Service.findById(req.params.serviceId, (err, service)=>{
         if (err) res.status(404).json(err);
-        console.log(req.body);
         service.name = req.body.name ? req.body.name : service.name;
         
         service.save( err => {

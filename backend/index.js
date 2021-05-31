@@ -47,6 +47,10 @@ app.use("/user", userRouter);
 const serviceRouter = require('./routes/serviceRoutes') ;
 app.use("/service", serviceRouter);
 
+//define accounts management routes
+const serviceProviderRouter = require('./routes/serviceProviderRouter') ;
+app.use("/account", serviceProviderRouter);
+
 //launch app to listen to specified PORT
 app.listen(PORT, ()=>{
     console.log('server listenning on ' + PORT);

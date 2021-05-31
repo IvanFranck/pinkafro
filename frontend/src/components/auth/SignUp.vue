@@ -2,16 +2,20 @@
   <form @submit.prevent="handleSignUp">
     <span class="text-secondary">Create an account</span>
     <div class="form-group">
-      <label for="username">First name</label>
+      <label for="first_name">First name</label>
       <input type="text" name="first_name" id="first_name" v-model="user.first_name" />
     </div>
     <div class="form-group">
-      <label for="username">Last name</label>
+      <label for="last_name">Last name</label>
       <input type="text" name="last_name" id="last_name" v-model="user.last_name" />
     </div>
     <div class="form-group">
-      <label for="username">Email</label>
+      <label for="email">Email</label>
       <input type="text" name="email" id="email" v-model="user.mail" />
+    </div>
+    <div class="form-group">
+      <label for="number">Number</label>
+      <input type="number" name="number" id="number" v-model="user.number" />
     </div>
     <div class="form-group">
       <label for="password">Password</label>
@@ -32,7 +36,9 @@ export default {
         first_name: "",
         last_name: "",
         mail: '',
-        password: ''
+        password: '',
+        account_type: 'customer',
+        number: ''
       }
     };
   },

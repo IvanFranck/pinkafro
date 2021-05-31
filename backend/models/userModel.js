@@ -16,7 +16,15 @@ var userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    number:{
+        type: Number,
+        required: true
+    },
     password:{
+        type: String,
+        required: true
+    },
+    account_type:{
         type: String,
         required: true
     },

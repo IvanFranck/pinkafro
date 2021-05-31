@@ -4,21 +4,15 @@ const User = require('../models/userModel');
 //handle register new user action
 exports.registerNewUser = async (req, res) => {
     try {
-        // console.log(isUser);
-        // if (isUser.length >= 1) {
-        //     return res.status(409).json({
-        //         message: "email already in use"
-        //     });
-        // };
-
-
         const user = new User({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             mail: req.body.mail,
-            password: req.body.password
+            password: req.body.password,
+            account_type: req.body.account_type,
+            number: req.body.number
         });
-        let data = await user.save();
+        const data = await user.save();
         const token = await user.generateAuthToken();
         res.status(201).json({data, token });
     }catch (err){
