@@ -3,15 +3,12 @@ const Service = require('../models/serviceModel');
 
 //get all services 
 exports.index = async (req, res) => {
-    await Service.get( (err, services) => {
-        if (err) 
+    await Service.get((err, services) => {
+        if (err)
             res.status(404).json({
                 error: err
             });
-        res.status(200).json({
-            message: "services retrieved successfully",
-            data: services
-        });
+        res.status(200).json(services);
     });
 };
 
@@ -31,8 +28,8 @@ exports.view = async (req, res) => {
 exports.new = async (req, res) => {
     var service = new Service();
     service.name = req.body.name;
-    await service.save( err => {
-        if(err) res.status(400).json(err);
+    await service.save(err => {
+        if (err) res.status(400).json(err);
 
         res.status(201).json({
             message: "new service added ! ",
@@ -54,12 +51,12 @@ exports.delete = async (req, res) => {
 };
 
 //handle service update
-exports.update = async  (req, res) => {
-    await Service.findById(req.params.serviceId, (err, service)=>{
+exports.update = async (req, res) => {
+    await Service.findById(req.params.serviceId, (err, service) => {
         if (err) res.status(404).json(err);
         service.name = req.body.name ? req.body.name : service.name;
-        
-        service.save( err => {
+
+        service.save(err => {
             if (err) res.status(400).json(err);
             res.status(200).json({
                 message: "service updated successfully !",
@@ -67,6 +64,6 @@ exports.update = async  (req, res) => {
             });
         });
 
-        
+
     });
 };

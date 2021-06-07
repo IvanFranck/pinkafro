@@ -18,12 +18,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="account in accounts.all" :key="account._id">
-            <td>{{ account.user_details.first_name }}</td>
-            <td>{{ account.user_details.last_name }}</td>
-            <td>Manicure</td>
-            <td>pending</td>
-          </tr>
+          <app-account
+            v-for="(account, index) in accounts.all"
+            :key="account._id"
+            :index = index
+            :account="account"
+            :services= "services"
+            :options="workHoursOptions"
+          >
+          </app-account>
         </tbody>
       </table>
     </div>
@@ -32,10 +35,16 @@
 
 <script>
 const swal = require("sweetalert");
-
+import Account from "../layouts/Account.vue";
 export default {
+  components: {
+    appAccount: Account,
+  },
   data() {
     return {
+      item: "Personnal Info",
+      workHoursOptions: null,
+      services: null,
       accounts: {
         all: [],
       },
@@ -43,6 +52,22 @@ export default {
   },
 
   methods: {
+      workHourenerator() {
+      let work_hour_tab = [];
+      for (let hour = 0; hour < 24; hour++) {
+        for (let minute = 0; minute < 60; minute = minute + 5) {
+          const hour_string =
+            hour >= 10 ? hour.toString() : "0" + hour.toString();
+          const minute_string =
+            minute >= 10 ? minute.toString() : "0" + minute.toString();
+
+          work_hour_tab.push(hour_string.concat(":", minute_string));
+        }
+      }
+
+      this.workHoursOptions = work_hour_tab;
+    },
+
     async getUserDetails(userId) {
       return await this.$http
         .get("/user/" + userId)
@@ -64,24 +89,36 @@ export default {
         else return;
       });
     },
-  },
-  created() {
-    this.getAllAccounts()
-      .then((accounts) => {
-        accounts.forEach((account) => {
-          this.getUserDetails(account.user_id).then((user_details) => {
-            console.log("user details", user_details);
-            this.accounts.all.push({account,user_details });
-          });
-        });
-      })
-      .catch(() => {
-        swal(
-          "Error!",
-          "Sommething went wrong while getting services providers accounts",
-          "error"
-        );
+
+    async getAllServices() {
+      return await this.$http.get("/service").then((res) => {
+        if (res.status === 200) return res.data;
+        else return;
       });
+    },
+  },
+
+  created() {
+    this.workHourenerator();
+    this.getAllServices().then((services) => {
+      this.services = services;
+
+      this.getAllAccounts()
+        .then((accounts) => {
+          accounts.forEach((account) => {
+            this.getUserDetails(account.user_id).then((user_details) => {
+              this.accounts.all.push({ account, user_details });
+            });
+          });
+        })
+        .catch(() => {
+          swal(
+            "Error!",
+            "Sommething went wrong while getting services providers accounts",
+            "error"
+          );
+        });
+    });
   },
 };
 </script>

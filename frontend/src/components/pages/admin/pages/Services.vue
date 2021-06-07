@@ -73,7 +73,7 @@ export default {
     async getAllServices() {
       const response = await this.$http.get("/service");
       if (response.status === 200)
-        this.service.all = response.data.data.reverse();
+        this.service.all = response.data.reverse();
       else message = "Problem with server connection ! Please reload te page";
     },
   },

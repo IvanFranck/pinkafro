@@ -4,6 +4,10 @@ var serviceSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
+    },
+    service_providers: {
+        type: Array,
+        required: true
     }
 });
 

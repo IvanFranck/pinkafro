@@ -149,9 +149,18 @@ body {
   width: 1.8rem;
   height: 1.8rem;
   cursor: pointer; }
-
-.icon__service {
-  margin-left: 1rem; }
+  .icon__service {
+    margin-left: 1rem; }
+  .icon__hidden {
+    visibility: hidden; }
+  .icon__square {
+    color: #B6B4B4;
+    padding: .7rem 1.5rem;
+    border-radius: .5rem;
+    border: 1px solid #dcdfe6;
+    cursor: pointer; }
+    .icon__square:hover {
+      background-color: rgba(255, 255, 255, 0.3); }
 
 .service-list {
   font-size: 1.6rem;
@@ -165,6 +174,146 @@ body {
       border-top: 1px solid rgba(0, 0, 0, 0.125) !important; }
       .service-list li:hover .icon {
         visibility: visible; }
+
+.table th {
+  font-weight: 400 !important; }
+
+.table td {
+  padding: 2rem 1rem; }
+
+.table tbody tr:hover .icon__hidden {
+  visibility: visible; }
+
+.table-head {
+  color: #B6B4B4; }
+
+.modal {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.13rem; }
+  .modal-dialog {
+    max-width: 70rem !important; }
+  .modal-content {
+    width: 100%; }
+  .modal-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 12rem;
+    width: 100%;
+    padding: 2rem; }
+  .modal-title {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+  .modal-body {
+    padding: 2rem;
+    height: 40rem;
+    width: 100%; }
+    .modal-body-form {
+      position: relative; }
+      .modal-body-form .services-body {
+        height: 4.5rem; }
+        .modal-body-form .services-body input {
+          height: 100%; }
+        .modal-body-form .services-body input[type='radio'] {
+          width: 3rem;
+          height: 3rem;
+          margin-right: 1rem !important; }
+        .modal-body-form .services-body div {
+          font-size: 1.4rem;
+          height: 100%; }
+      .modal-body-form .working-hours_day {
+        width: 100%;
+        border: 1px solid #f2f3f5;
+        border-radius: .5rem; }
+        .modal-body-form .working-hours_day .day {
+          padding: 1.2rem;
+          width: 100%;
+          background-color: #f2f3f5;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center; }
+          .modal-body-form .working-hours_day .day_icon {
+            color: #2F4AC1;
+            border: 1px solid #f2f3f5;
+            background-color: white;
+            border-radius: 50%;
+            padding: .4rem .8rem;
+            cursor: pointer; }
+        .modal-body-form .working-hours_day .hours {
+          width: 100%;
+          background-color: white; }
+          .modal-body-form .working-hours_day .hours .row-select {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center; }
+            .modal-body-form .working-hours_day .hours .row-select .select {
+              flex: 0 0 45%;
+              width: 100%;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+              border: 1px solid #c0c4cc;
+              padding: .8rem;
+              border-radius: .5rem; }
+              .modal-body-form .working-hours_day .hours .row-select .select span {
+                color: #c0c4cc; }
+              .modal-body-form .working-hours_day .hours .row-select .select select {
+                border: none; }
+                .modal-body-form .working-hours_day .hours .row-select .select select:focus {
+                  outline: none;
+                  box-shadow: none; }
+          .modal-body-form .working-hours_day .hours .row-btn {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center; }
+      .modal-body-form .form-group {
+        padding-top: 1.6rem; }
+    .modal-body label {
+      color: #7f8fa4; }
+    .modal-body input {
+      border: 0.1rem solid #e2e6ec;
+      font-weight: 400;
+      font-size: 1.4rem;
+      outline: none;
+      padding: 0 1.6rem;
+      border-radius: 0.5rem;
+      color: #504E4E;
+      display: block;
+      height: 3.5rem;
+      width: 100%; }
+
+.horizontal-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+  padding: 0rem;
+  margin: 0rem; }
+  .horizontal-menu .active {
+    color: #2F4AC1; }
+  .horizontal-menu li {
+    cursor: pointer;
+    color: #B6B4B4;
+    transition: all .2s;
+    font-size: 1.4rem;
+    font-weight: 700; }
+    .horizontal-menu li a:active {
+      color: #2F4AC1; }
+    .horizontal-menu li:hover {
+      color: #18010D; }
 
 header {
   height: 10rem;
@@ -235,7 +384,8 @@ header {
     align-items: flex-start;
     flex-direction: column;
     font-size: 2rem;
-    font-family: 'Roboto';
+    letter-spacing: 0.1rem;
+    font-family: "Roboto";
     font-family: 500; }
     .side-bar .side-bar--menu a {
       padding: 2rem 0rem;
@@ -244,7 +394,7 @@ header {
       justify-content: space-between;
       align-items: baseline; }
       .side-bar .side-bar--menu a span {
-        padding-left: .8rem; }
+        padding-left: 0.8rem; }
 
 .account {
   display: flex;
@@ -258,15 +408,6 @@ header {
     justify-content: space-between; }
   .account-body {
     font-size: 1.5rem; }
-
-.table th {
-  font-weight: 400 !important; }
-
-.table td {
-  padding: 2rem 1rem; }
-
-.table-head {
-  color: #B6B4B4; }
 
 .register-form form {
   width: 60rem;
@@ -292,6 +433,9 @@ header {
 .main {
   flex: 1 1 80%;
   font-family: 'Roboto', sans-serif;
+  color: #354052;
+  letter-spacing: .1rem;
+  font-style: normal;
   margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
